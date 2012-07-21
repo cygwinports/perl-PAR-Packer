@@ -1,0 +1,14 @@
+--- origsrc/PAR-Packer-1.013/myldr/Makefile.PL	2012-01-26 12:51:55.000000000 -0600
++++ src/PAR-Packer-1.013/myldr/Makefile.PL	2012-07-20 15:36:53.582111700 -0500
+@@ -114,9 +114,8 @@ if( $cc =~ m/^cl\b/i ) {
+     $warn = $debug ? '-Wall -Wno-comments ' : '';
+     if( $^O =~ /^(?:MSWin|cygwin)/ ){
+    $res = 'ppresource.coff';
+-   $pre_res = qq(winres\\pp.res);
+-   $rt_cmd = qq(windres -F pei-i386 -i winres\\pp.rc -o $pre_res);
+-   $res_cmd = qq(windres -o ppresource.coff $pre_res);
++   $pre_res = qq(winres/pp.res);
++   $res_cmd = qq(windres -o ppresource.coff winres/pp.rc);
+    $res_section = $res;
+     }
+     $mt_cmd = '-$(NOOP)';
